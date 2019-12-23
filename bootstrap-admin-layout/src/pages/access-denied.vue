@@ -1,8 +1,8 @@
 <template>
-  <div>Page not found</div>
+  <div>Access denied</div>
 </template>
 <script>
 export default {
-  name: "404"
+  name: "AccessDenied"
 };
 </script>
