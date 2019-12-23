@@ -10,32 +10,12 @@
 </template>
 
 <script>
-import VueRouter from "vue-router";
-import Navigation from "./components/layout/navigation.vue";
-import Sidebar from "./components/layout/sidebar.vue";
-import Footer from "./components/layout/footer.vue";
-
-import Home from "./components/modules/home.module.vue";
-const HelloWorld = () => import("./components/HelloWorld.vue");
-
-const routers = [
-  {
-    path: "/",
-    component: Home
-  },
-  {
-    path: "/hello-world",
-    component: HelloWorld
-  }
-];
-
-const router = new VueRouter({
-  routers
-});
+import Navigation from "./layout/navigation.vue";
+import Sidebar from "./layout/sidebar.vue";
+import Footer from "./layout/footer.vue";
 
 export default {
   name: "app",
-  router,
   components: {
     Navigation,
     Sidebar,
@@ -43,6 +23,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>
