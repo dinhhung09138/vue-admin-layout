@@ -2,22 +2,44 @@
   <div id="app">
     <Navigation />
     <Sidebar />
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="content-wrapper">
+      <router-view></router-view>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import VueRouter from "vue-router";
 import Navigation from "./components/layout/navigation.vue";
 import Sidebar from "./components/layout/sidebar.vue";
+import Footer from "./components/layout/footer.vue";
+
+import Home from "./components/modules/home.module.vue";
+const HelloWorld = () => import("./components/HelloWorld.vue");
+
+const routers = [
+  {
+    path: "/",
+    component: Home
+  },
+  {
+    path: "/hello-world",
+    component: HelloWorld
+  }
+];
+
+const router = new VueRouter({
+  routers
+});
 
 export default {
   name: "app",
+  router,
   components: {
-    HelloWorld,
     Navigation,
-    Sidebar
+    Sidebar,
+    Footer
   }
 };
 </script>
