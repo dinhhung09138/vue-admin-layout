@@ -14,7 +14,7 @@ const router = new Router({
             name: 'layout',
             component: Layout,
             meta: {
-                requiresAuth: true,
+                requiresAuth: false,
             },
             children: [{
                     path: '',
