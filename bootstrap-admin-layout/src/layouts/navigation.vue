@@ -1,64 +1,62 @@
 <template>
-  <nav class="main-header navbar navbar-expand text-sm navbar-dark navbar-cyan">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#">
-          <i class="fas fa-bars"></i>
-        </a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <router-link tag="a" to="/" class="nav-link">Home</router-link>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <router-link tag="a" to="/hello-world" class="nav-link">Hello world</router-link>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <router-link tag="a" to="/contact" class="nav-link">Contact</router-link>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input
-          class="form-control form-control-navbar"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <NavigationChat />
-      <!-- Notifications Dropdown Menu -->
-      <NavigationNotification />
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <v-app-bar color="blue darken-3" dark dense tile flat fixed clipped-left app>
+    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-toolbar-title>Title</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-heart</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-dots-vertical</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-badge>
+        <template v-slot:badge>0</template>
+        <v-icon>mdi-email</v-icon>
+      </v-badge>
+    </v-btn>
+    <v-menu>
+      <template v-slot:activator="{ on }">
+        <v-btn dark icon v-on="on">
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+      </template>
+    </v-menu>
+    <v-menu nudge-bottom="0" offset-y>
+      <template v-slot:activator="{ on }">
+        <v-list-item-avatar v-on="on">
+          <v-img src="https://randomuser.me/api/portraits/men/85.jpg" />
+        </v-list-item-avatar>
+      </template>
+      <v-list>
+        <v-list-item @click="true">
+          <v-list-item-icon>
+            <v-icon>mdi-format-list-bulleted-square</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Profile</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="true">
+          <v-list-item-title>
+            <v-icon>mdi-format-list-bulleted-square</v-icon>&nbsp;Change password
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="true">
+          <v-list-item-title :append-icon="mdi-heart">Forgot password</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="true">
+          <v-list-item-title>Logout</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </v-app-bar>
 </template>
 <script>
-import NavigationChat from "./navigation.chat.vue";
-import NavigationNotification from "./navigation.notification.vue";
-
 export default {
   name: "Navigation",
-  components: {
-    NavigationChat,
-    NavigationNotification
-  }
+  components: {}
 };
 </script>
 <style scoped>

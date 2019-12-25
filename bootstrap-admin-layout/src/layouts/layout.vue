@@ -1,43 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar color="blue darken-3" dark dense tile flat fixed>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-badge>
-          <template v-slot:badge>0</template>
-          <v-icon>mdi-email</v-icon>
-        </v-badge>
-      </v-btn>
-    </v-app-bar>
-    <v-row>
-      <v-col cols="12" md="12"></v-col>
-    </v-row>
-    <div>
-      <Navigation />
-      <Sidebar />
-      <div class="content-wrapper">
+    <Navigation />
+    <Sidebar />
+    <v-content>
+      <v-container fluid>
         <router-view></router-view>
-      </div>
-      <Footer />
-    </div>
-    <v-bottom-navigation background-color="blue darken-3" color="white" dense tile flat>
-      <v-btn tile outlined x-small color="success">
-        <span>Favorites</span>
-      </v-btn>
-      <span>Data content</span>
-      abc def
-    </v-bottom-navigation>
+      </v-container>
+    </v-content>
+    <Footer />
   </v-app>
 </template>
 <script>

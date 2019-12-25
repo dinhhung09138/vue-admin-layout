@@ -1,14 +1,11 @@
 <template>
-  <footer class="main-footer">
-    <strong>
-      Copyright &copy; 2014-2019
-      <a href="http://adminlte.io">AdminLTE.io</a>.
-    </strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.1
-    </div>
-  </footer>
+  <v-footer class="text-center" color="blue darken-3" dense tile flat app>
+    <v-btn tile outlined x-small color="success">
+      <span>Favorites</span>
+    </v-btn>
+    <span>Data content</span>
+    abc def
+  </v-footer>
 </template>
 <script>
 export default {
@@ -16,4 +13,7 @@ export default {
 };
 </script>
 <style scoped>
+.text-center {
+  text-align: center;
+}
 </style>
